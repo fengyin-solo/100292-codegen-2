@@ -28,6 +28,52 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class RateItemPayload(BaseModel):
+    """新版口径中单条「项目类别 -> 提取比例」。"""
+
+    项目类别: str
+    提取比例: float
+
+
+class RateVersionPayload(BaseModel):
+    """登记一版新的安全费用提取口径（先存草稿，发布后生效）。"""
+
+    版本编号: str
+    版本名称: str | None = None
+    生效年度: int
+    发布说明: str | None = None
+    rates: list[RateItemPayload] = Field(default_factory=list)
+
+
+class AccrualPayload(BaseModel):
+    """按项目与年度登记安全费用提取：应提金额由现行已发布口径自动算出。"""
+
+    项目编号: str
+    年度: int
+    计提基数: float
+    登记人工号: str
+    备注: str | None = None
+
+
+class RefillPayload(BaseModel):
+    """口径调整后的存量重填：留空年度则把全部现行提取记录重填一遍。"""
+
+    年度: int | None = None
+    登记人工号: str | None = None
+
+
+class UsagePayload(BaseModel):
+    """安全费用使用登记：与提取登记分开，超已提余额、重复发票、非本项目安全员一律驳回。"""
+
+    项目编号: str
+    年度: int
+    费用类别: str
+    金额: float
+    发票号: str
+    用途说明: str
+    登记人工号: str
+
+
 
 class RegisterEntry(BaseModel):
     """设备登记明细结构。"""

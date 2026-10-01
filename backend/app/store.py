@@ -30,6 +30,9 @@ class Store:
     def overview(self) -> dict[str, object]:
         modules: list[dict[str, object]] = []
         for name in self.module_names():
+            if name.startswith("sf_"):
+                # 安全费用台账的内部表没有统一的 pending/abnormal 口径，不并入运营概览
+                continue
             rows = self.rows(name)
             modules.append({
                 "name": name,

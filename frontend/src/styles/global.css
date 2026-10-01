@@ -33,3 +33,20 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.tab-btn { border: none; background: none; padding: 8px 16px; cursor: pointer; font-size: 14px; color: var(--muted); border-bottom: 2px solid transparent; }
+.tab-btn.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+.form-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+.form-grid { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; }
+.form-grid label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.form-grid input, .form-grid select { min-width: 160px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
+.form-grid input.wide { min-width: 280px; }
+.notice { border-radius: 6px; padding: 8px 12px; font-size: 13px; margin-bottom: 12px; }
+.notice.ok { background: #ecfdf3; border: 1px solid #abefc6; color: #067647; }
+.notice.fail { background: #fef3f2; border: 1px solid #fda29b; color: #b42318; }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; }
+.tag.green { background: #ecfdf3; color: #067647; border: 1px solid #abefc6; }
+.tag.gray { background: #f2f4f7; color: var(--muted); border: 1px solid var(--border); }
+.tag.blue { background: #eff8ff; color: #175cd3; border: 1px solid #b2ddff; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.section-title { font-size: 14px; font-weight: 600; margin: 4px 0 8px; }
